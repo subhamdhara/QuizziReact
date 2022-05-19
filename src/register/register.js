@@ -1,55 +1,32 @@
 import React from "react";
 import "../App.css";
-
-import "./login.css";
+import api from "../api/persons.js";
+import "./register.css";
 import axios from "axios";
 
-function Login() {
-
-  function filter(array, value, key) {
-    return array.filter(
-      key
-        ? (a) => a[key] === value
-        : (a) => Object.keys(a).some((k) => a[k] === value)
-    );
-  }
+function Register() {
   const [formValue, setformValue] = React.useState({
     name: "",
     email: "",
     password: "",
   });
 
-
-  
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const warning = document.getElementById("incorrect");
 
     const dataPer = {
+      name: formValue.name,
       email: formValue.email,
       password: formValue.password,
     };
-      
 
     try {
-      axios.get(`/persons`).then((res) => {
-        const persons = res.data;
-        const emailFilter = filter(persons, dataPer.email, "email");
-        const personFilter = filter(emailFilter, dataPer.password, "password");
-        const isAuthorized = () => {
-          if (personFilter.length !== 0) {
-            return true;
-          } else {
-            return false;
-          }
-        };
-        if (isAuthorized()) {
-          warning.style.display = "none";
-          window.location.href = "http://localhost:3000/home";
-        } else {
-          warning.style.display = "block";
-        }
-      });
+    
+      axios
+      .post("/persons", dataPer)
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+      
     } catch (error) {
       console.log(error);
     }
@@ -62,20 +39,25 @@ function Login() {
     });
   };
 
-
+  const changePage = () => {
+    window.location.href = "http://localhost:3000/login";
+  }
   return (
-    <div className="Login">
-      <h1>Login</h1>
-
+    <div className="Register">
+      <h1>Register</h1>
       <div className="triangle"></div>
       <div className="diamond"></div>
       <div className="square"></div>
       <div className="circle"></div>
-      <div className="warning" id="incorrect" style={{display: "none"}}>
-        Email or password incorrect!
-      </div>
-
       <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="name"
+          value={formValue.name}
+          onChange={handleChange}
+        />
         <input
           type="email"
           name="email"
@@ -92,13 +74,13 @@ function Login() {
           value={formValue.password}
           onChange={handleChange}
         />
-        <button type="submit" className="btn">
-          Login
+        
+        <button type="submit" className="btn" onClick={changePage}>
+          Register
         </button>
       </form>
     </div>
   );
-  
 }
 
-export default Login;
+export default Register;
