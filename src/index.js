@@ -5,6 +5,7 @@ import reportWebVitals from "./reportWebVitals";
 import App from "./App";
 import Login from "./login/login.js";
 import Register from "./register/register";
+import Home from "./home/home";
 import {BrowserRouter,  Route, Routes} from "react-router-dom";
 
 
@@ -16,6 +17,7 @@ root.render(
       <Route path="/" element={<App/>}/>
       <Route path="/login" element={<Login/>}/>
       <Route path="/register" element={<Register/>}/>
+      <Route path="/home" element={<Home/>}/>
     </Routes>
   </BrowserRouter>
   </React.StrictMode>

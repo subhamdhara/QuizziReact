@@ -1,6 +1,6 @@
 import React from "react";
 import "../App.css";
-
+import Home from "../home/home";
 import "./login.css";
 import axios from "axios";
 
@@ -26,6 +26,7 @@ function Login() {
     const warning = document.getElementById("incorrect");
 
     const dataPer = {
+      // name: formValue.name,
       email: formValue.email,
       password: formValue.password,
     };
@@ -45,7 +46,12 @@ function Login() {
         };
         if (isAuthorized()) {
           warning.style.display = "none";
-          window.location.href = "http://localhost:3000/home";
+          // window.location.href = "http://localhost:3000/home";
+          // window.email = personFilter.email
+          // window.name = personFilter.name
+          // window.password = personFilter.password
+          // console.log(personFilter.name)
+          console.log(personFilter[0].name)
         } else {
           warning.style.display = "block";
         }
