@@ -1,0 +1,91 @@
+div.MakeQuiz main{
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+div.MakeQuiz main h2.heading{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin-bottom: 50px;
+}
+
+div.MakeQuiz ul.drop-down{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+div.MakeQuiz ul.drop-down li{
+    position: relative;
+    list-style: none;
+}
+div.MakeQuiz ul.drop-down li ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    gap: 5px;
+    visibility: collapse;
+    /* height: 0; */
+    opacity: 0;
+    background-color: #007ac1;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 0;
+    transition: .5s;
+    width: 199px;
+}
+div.MakeQuiz ul.drop-down li ul li{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: .5s;
+    width: 199px;
+
+}
+div.MakeQuiz ul.drop-down li ul li:hover{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: .5s;
+    width: 199px;
+    background-color: #03a9f4;
+}
+
+
+div.MakeQuiz ul.drop-down li i.drop{
+    border: solid #000;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 7px;
+    margin: 0 0 5px 8px;
+    transform: rotate(-45deg);
+    transition: .5s;
+}
+div.MakeQuiz ul.drop-down li:hover i.drop{
+    transform: rotate(45deg);
+    margin: 0 0 7px 8px;
+}
+
+div.MakeQuiz ul.drop-down li:hover ul{
+    position: absolute;
+    top: 60px;
+    left: 0;
+    height: fit-content;
+    visibility: visible;
+    opacity: 1;
+}
+button{
+    font-size: 20px;
+    background:none;
+    border:none;
+}

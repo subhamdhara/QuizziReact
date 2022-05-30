@@ -7,6 +7,8 @@ import Login from "./login/login.js";
 import Register from "./register/register";
 import Home from "./home/home";
 import {BrowserRouter,  Route, Routes} from "react-router-dom";
+import MakeQuiz from "./make-quiz/make-quiz";
+import GamePin from "./Quiz/game_pin/game_pin";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -18,6 +20,8 @@ root.render(
       <Route path="/login" element={<Login/>}/>
       <Route path="/register" element={<Register/>}/>
       <Route path="/home" element={<Home/>}/>
+      <Route path="/make-quiz" element={<MakeQuiz/>}/>
+      <Route path="/join" element={<GamePin/>}/>
     </Routes>
   </BrowserRouter>
   </React.StrictMode>

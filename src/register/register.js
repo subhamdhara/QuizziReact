@@ -21,7 +21,7 @@ function Register() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const success = document.getElementById("success");
-    success.style.display = "none";
+    const error = document.getElementById("warning");
 
 
 
@@ -51,9 +51,11 @@ function Register() {
         };
         if (isPresentInQuizzi()) {
           success.style.display = "block";
+          error.style.display = "none";
           window.location.href = "http://localhost:3000/login";
         } else {
           success.style.display = "none";
+          error.style.display = "block";
         }
       });
       
@@ -74,6 +76,7 @@ function Register() {
     <div className="Register">
       <h1>Register</h1>
       <div className="success" id="success" style={{display: "none"}}>Account Created!</div>
+      <div className="warning" id="warning" style={{display: "none"}}>Account Not Created For Some Issues. Please Try Again.</div>
 
       <div className="triangle"></div>
       <div className="diamond"></div>
@@ -81,14 +84,16 @@ function Register() {
       <div className="circle"></div>
       <form onSubmit={handleSubmit}>
         <input
+          className="underline-input"
           type="text"
           name="name"
           id="name"
-          placeholder="name"
+          placeholder="first name"
           value={formValue.name}
           onChange={handleChange}
         />
         <input
+          className="underline-input"
           type="email"
           name="email"
           id="email"
@@ -97,6 +102,7 @@ function Register() {
           onChange={handleChange}
         />
         <input
+          className="underline-input"
           type="password"
           name="password"
           id="password"

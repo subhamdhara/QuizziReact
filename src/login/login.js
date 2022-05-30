@@ -1,6 +1,6 @@
 import React from "react";
 import "../App.css";
-import Home from "../home/home";
+// import Home from "../home/home";
 import "./login.css";
 import axios from "axios";
 
@@ -46,12 +46,9 @@ function Login() {
         };
         if (isAuthorized()) {
           warning.style.display = "none";
-          // window.location.href = "http://localhost:3000/home";
-          // window.email = personFilter.email
-          // window.name = personFilter.name
-          // window.password = personFilter.password
-          // console.log(personFilter.name)
-          console.log(personFilter[0].name)
+          window.location.href = "http://localhost:3000/home";
+          localStorage.setItem('dataKey', JSON.stringify(personFilter));
+
         } else {
           warning.style.display = "block";
         }
@@ -83,6 +80,7 @@ function Login() {
 
       <form onSubmit={handleSubmit}>
         <input
+          className="underline-input"
           type="email"
           name="email"
           id="email"
@@ -91,6 +89,7 @@ function Login() {
           onChange={handleChange}
         />
         <input
+          className="underline-input"
           type="password"
           name="password"
           id="password"

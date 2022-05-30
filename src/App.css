@@ -12,7 +12,7 @@ header{
   color: #000;
   align-items: center;
   gap: 40px;
-  padding: 20px;
+  padding: 25px;
 }
 header .title{
   border-right: 3px solid #000;
@@ -28,40 +28,37 @@ header h1{
   width: 100%;
 }
 .btn{
-  font-size: 50px;
+  font-size: 24px;
   background-color: #005cb2;
   color: #fff;
   text-decoration: none;
-  padding: 4px 8px;
+  padding: 8px 24px;
   border-radius: 5px;
   border: none;
+  transition: .5s;
+}
+.btn:hover{
+  background-color: #67daff;
+  color: #000;
 }
 ::selection{
   background-color: #c4c4c4;
+  color: #000;
 }
 main{
   display: flex;
-}
-main .left{
-  display: flex;
+  height: calc(100vh - 116px);
+  text-align: center;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 10px;
   font-size: 3rem;
   width: 100%;
-  height: calc(100vh - 98px);
+  padding: 30px;
 }
-main .right{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 10px;
-  font-size: 3rem;
-  width: 100%;
-  height: calc(100vh - 98px);
-}
+
+
 .warning{
   background-color: #ff7c7c;
   padding: 10px;
@@ -81,4 +78,14 @@ main .right{
   margin-top: 20px;
   font-size: 30px;
   z-index: 10000000000000000000000000000;
+}
+input.underline-input{
+  border: none;
+  border-bottom: 2px solid #000;
+  background-color: transparent;
+  width: 300px;
+  font-size: 20px;
+}
+input.underline-input:focus{
+  outline: none;
 }
